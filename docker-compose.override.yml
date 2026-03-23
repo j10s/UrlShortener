@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  urlshortener.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Integration
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+     - "5000:80"
