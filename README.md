@@ -7,7 +7,6 @@ Example UrlShortener project using ASP.NET Core
 
 - Docker / Rancher / Podman / Any `docker-compose` compatible orchestration framework
 - .NET 10
-- [Setup dev-certs](https://learn.microsoft.com/en-us/dotnet/core/additional-tools/self-signed-certificates-guide)
 
 ### How to run
 #### Docker
