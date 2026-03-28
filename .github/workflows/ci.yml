@@ -1,0 +1,39 @@
+﻿name: Continuous Integration
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Docker Compose
+        uses: docker/setup-compose-action@v2.1.0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Restore dependencies
+        run: dotnet restore UrlShortener.sln
+      - name: Build
+        run: dotnet build UrlShortener.sln --no-restore
+      - name: Test
+        run: dotnet test UrlShortener.sln --no-build --verbosity normal --collect:"XPlat Code Coverage" --settings:coverage.runsettings
+      - name: ReportGenerator
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.5.4
+        with:
+          reports: '**/coverage.cobertura.xml'
+          targetdir: 'CoverageReport'
+          reporttypes: 'HtmlInline'
+      - name: Upload coverage report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoverageReport
+          path: CoverageReport
