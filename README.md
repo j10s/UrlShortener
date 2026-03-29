@@ -2,6 +2,14 @@
 
 Example UrlShortener project using ASP.NET Core
 
+## Features
+
+- Short, unique, URL-safe hashes derived from database IDs
+- Entity Framework Core with Automatic Migrations
+- Togglable tiered caching to support both read heavy and write heavy performance characteristics
+- 100% code coverage and branch coverage
+- [Continuous Integration](https://github.com/j10s/UrlShortener/actions) with code coverage artifacts
+
 ## Getting Started
 ### Prequisites
 
