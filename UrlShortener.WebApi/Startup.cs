@@ -54,6 +54,7 @@ public class Startup
             MigrationRunner.Run();
         }
         
+        app.UseRedisInformation();
         app.UseSerilogRequestLogging();
         app.UseRouting();
 
