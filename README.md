@@ -25,14 +25,14 @@ http://localhost:5000/swagger
 #### Local development
 
 Run `docker compose -f docker-compose.integration.yml up --detach` in the project root to spin up dependencies then
-`dotnet run --project UrlShortener.WebApi --launch-profile WebApi` or run / debug the UrlShortener.WebApi in your favourite IDE.
+`dotnet run --project UrlShortener.WebApi --launch-profile WebApi` or run / debug the UrlShortener.WebApi project in your favourite IDE.
 Navigate to http://localhost:5000/swagger if it does not open automatically.
 
 ### Testing
 
 > Ensure the docker daemon is already running before running tests or coverage
 
-Run `dotnet test dotnet test UrlShortener.sln --settings:coverage.runsettings` in the project root.
+Run `dotnet test UrlShortener.sln --settings:coverage.runsettings` in the project root.
 
 #### Code coverage
 Run `GenerateCoverage.ps1` in the project root to run tests and generate a code coverage report and open the `index.html` file in
